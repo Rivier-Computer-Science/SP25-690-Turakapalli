@@ -31,6 +31,8 @@ Given a noisy input image, the objective is to generate a clean and denoised ima
 - Smartphone Image Denoising Dataset (SIDD)
 - Contains real-world noisy images and corresponding clean reference images
 - Captured in challenging lighting conditions
+- Source: https://abdokamel.github.io/sidd/
+- Download: http://130.63.97.225/share/download_benchmark.html
 
 ### 3.2 BSD500 with Synthetic Noise
 - Clean images from the BSD500 dataset
@@ -38,6 +40,8 @@ Given a noisy input image, the objective is to generate a clean and denoised ima
   - σ = 15
   - σ = 25
   - σ = 50
+- Source: https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/resources.html
+- Download: http://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/BSR/BSR_bsds500.tgz
 
 ### Dataset Split
 - Training: 70%
