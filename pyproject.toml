@@ -1,0 +1,19 @@
+[project]
+name = "sp25-690-turakapalli"
+version = "0.1.0"
+description = "Image denoising model runner"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "torch",
+    "torchvision",
+    "numpy",
+    "Pillow",
+    "tqdm",
+    "matplotlib",
+    "scikit-image",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"

@@ -1,5 +1,10 @@
 import argparse
 from pathlib import Path
+import sys
+
+root_dir = Path(__file__).resolve().parent
+if str(root_dir) not in sys.path:
+    sys.path.insert(0, str(root_dir))
 
 import torch
 from PIL import Image
@@ -47,12 +52,25 @@ def get_model(name: str, checkpoint: str = None, device: str = "cpu"):
 
 
 def main(args):
+    print(f"Input image: {args.input}")
+    print(f"Output path: {args.output}")
+    print(f"Model: {args.model}")
+    print(f"Image size: {args.image_size}")
+    if args.checkpoint:
+        print(f"Checkpoint: {args.checkpoint}")
+    else:
+        print("No checkpoint provided, using random weights")
+
     device = "cuda" if torch.cuda.is_available() else "cpu"
+    print(f"Device: {device}")
     model = get_model(args.model, args.checkpoint, device)
 
     noisy = load_image(args.input, args.image_size).to(device)
+    print(f"Loaded noisy image shape: {noisy.shape}")
+
     with torch.no_grad():
         denoised = model(noisy)
+    print(f"Denoised image shape: {denoised.shape}")
 
     save_image(denoised, args.output)
     print(f"Denoised image saved to {args.output}")
